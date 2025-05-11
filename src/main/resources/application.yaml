@@ -8,7 +8,18 @@ spring:
         model: deepseek-r1:1.5b
         options:
           temperature: 0.8
+    openai:
+      base-url: https://dashscope.aliyuncs.com/compatible-mode
+      api-key: ${OPENAI_API_KEY}
+      chat:
+        options:
+          model: qwen-max-latest # 可选择的模型列表 https://help.aliyun.com/zh/model-studio/getting-started/models
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/itheima?serverTimezone=Asia/Shanghai&useSSL=false&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&transformedBitIsBoolean=true&tinyInt1isBit=false&allowPublicKeyRetrieval=true&allowMultiQueries=true&useServerPrepStmts=false
+    username: root
+    password: 156238
 logging:
   level:
-    org.springframework.ai: debug # AI对话的日志级别
+    org.springframework.ai.chat.client.advisor: debug # AI对话的日志级别
     com.itheima.ai: debug # 本项目的日志级别
